@@ -72,13 +72,15 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({
       <Modal
         backdrop="blur"
         classNames={{
+          wrapper: "max-w-full w-full max-h-screen overflow-hidden", // Full width
           backdrop: "max-h-screen overflow-hidden",
-          wrapper: "max-h-screen overflow-hidden",
         }}
         isOpen={isOpen}
         onOpenChange={onClose}
       >
-        <ModalContent className={modalContent?.modalClassName || ""}>
+        <ModalContent
+          className={`w-full max-w-6xl mx-auto ${modalContent?.modalClassName || ""}`}
+        >
           {modalContent && (
             <>
               {modalContent.title && (
