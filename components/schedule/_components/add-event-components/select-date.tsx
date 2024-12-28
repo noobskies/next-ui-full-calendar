@@ -103,22 +103,26 @@ export default function SelectDate({
           <TimeInput
             label="Start Time"
             defaultValue={dateState?.startTime}
-            onChange={(e: Time) => {
-              setDateState({
-                ...dateState,
-                startTime: e,
-              });
+            onChange={(e: Time | null) => {
+              if (e !== null) {
+                setDateState({
+                  ...dateState,
+                  startTime: e,
+                });
+              }
             }}
           />
 
           <TimeInput
             label="End Time"
             defaultValue={dateState?.endTime}
-            onChange={(e: Time) => {
-              setDateState({
-                ...dateState,
-                endTime: e,
-              });
+            onChange={(e: Time | null) => {
+              if (e !== null) {
+                setDateState({
+                  ...dateState,
+                  endTime: e,
+                });
+              }
             }}
             isInvalid={
               dateState?.startTime &&
